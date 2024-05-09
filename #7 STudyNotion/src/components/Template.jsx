@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 function Template({ title, formtype, image, logged, setLogged }) {
   return (
     <div className="flex justify-between w-screen px-8 mb-5">
-      <div className="flex flex-col w-full sm:w-5/12 px-5"> {/* Responsive width */}
+      <div className="flex flex-col w-full sm:w-5/12 px-5"> 
         <div className="mb-3">
           <h1 className="font-semibold text-[1.875rem] leading-[2.375rem]">
             {title}
@@ -45,7 +45,7 @@ function Template({ title, formtype, image, logged, setLogged }) {
           </button>
         </div>
       </div>
-      <div className="w-full sm:w-5/12 relative"> {/* Responsive width */}
+      <div className="w-full sm:w-5/12 relative"> 
         <img
           src={frame}
           loading="lazy"
