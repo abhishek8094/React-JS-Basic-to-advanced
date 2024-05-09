@@ -7,9 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 function Template({ title, formtype, image, logged, setLogged }) {
   return (
     <div className="flex justify-between w-screen px-8 mb-5">
-      <div className="flex flex-col w-5/12 px-5">
+      <div className="flex flex-col w-full sm:w-5/12 px-5"> {/* Responsive width */}
         <div className="mb-3">
-          <h1 className=" font-semibold text-[1.875rem] leading-[2.375rem] ">
+          <h1 className="font-semibold text-[1.875rem] leading-[2.375rem]">
             {title}
           </h1>
         </div>
@@ -20,7 +20,7 @@ function Template({ title, formtype, image, logged, setLogged }) {
             Education to future-proof your career.
           </span>
         </div>
-        <div className="mb-4 ">
+        <div className="mb-4">
           {formtype === "signup" ? (
             <Signupform logged={logged} setLogged={setLogged} />
           ) : (
@@ -28,26 +28,24 @@ function Template({ title, formtype, image, logged, setLogged }) {
           )}
         </div>
         <div
-          className="flex w-full justify-center items-center
-           gap-x-1 mb-4 "
+          className="flex w-full justify-center items-center gap-x-1 mb-4"
         >
           <div className="h-[1px] border border-slate-700 w-full"></div>
-          <p className=" text-slate-400 font-semibold">OR</p>
+          <p className="text-slate-400 font-semibold">OR</p>
           <div className="h-[1px] border border-slate-700 w-full"></div>
         </div>
         <div className="w-full">
           <button
-            className="w-full flex border border-slate-500  py-2 justify-center rounded-md
-               gap-x-2 items-center "
+            className="w-full flex border border-slate-500 py-2 justify-center rounded-md gap-x-2 items-center"
           >
             <FcGoogle />
-            <span className=" text-slate-400 font-semibold">
+            <span className="text-slate-400 font-semibold">
               Sign up with Google
             </span>
           </button>
         </div>
       </div>
-      <div className="w-5/12 relative">
+      <div className="w-full sm:w-5/12 relative"> {/* Responsive width */}
         <img
           src={frame}
           loading="lazy"

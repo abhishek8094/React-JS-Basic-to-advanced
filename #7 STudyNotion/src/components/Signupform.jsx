@@ -17,9 +17,7 @@ function Signupform(props) {
   const [visible1, setVisible1] = useState(false);
   const [visible2, setVisible2] = useState(false);
   const [group, setGroup] = useState("student");
-  console.log(values);
-  console.log(visible1);
-  console.log(visible2);
+
   function changeHandler(event) {
     const { name, value } = event.target;
     setValues((prev) => ({
@@ -27,6 +25,7 @@ function Signupform(props) {
       [name]: value,
     }));
   }
+
   function submitHandler(event) {
     event.preventDefault();
     if (values.create === values.confirm) {
@@ -56,6 +55,7 @@ function Signupform(props) {
       navigate("#");
     }
   }
+
   return (
     <div>
       <div className="flex bg-slate-800 w-fit py-2 px-1 rounded-full gap-x-2">
@@ -76,9 +76,9 @@ function Signupform(props) {
           Instructor
         </div>
       </div>
-      <form onSubmit={submitHandler}>
-        <div className="flex justify-between flex-wrap my-2 max-w-full">
-          <label class="block">
+      <form onSubmit={submitHandler} className="max-w-full sm:max-w-md">
+        <div className="flex justify-between flex-wrap my-2">
+          <label className="block w-full sm:w-1/2">
             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
               First Name
             </span>
@@ -86,13 +86,13 @@ function Signupform(props) {
               required
               type="text"
               name="first"
-              className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block max-w-full rounded-md focus:border-slate-300 "
+              className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block w-full rounded-md focus:border-slate-300"
               placeholder="Anubhav"
               onChange={changeHandler}
               value={values.first}
             />
           </label>
-          <label class="block">
+          <label className="block w-full sm:w-1/2">
             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
               Last Name
             </span>
@@ -100,7 +100,7 @@ function Signupform(props) {
               required
               type="text"
               name="last"
-              className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block w-full rounded-md focus:border-slate-300 "
+              className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block w-full rounded-md focus:border-slate-300"
               placeholder="Das"
               onChange={changeHandler}
               value={values.last}
@@ -115,18 +115,18 @@ function Signupform(props) {
             required
             type="email"
             name="email"
-            className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block w-full rounded-md focus:border-slate-300 "
+            className="mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 block w-full rounded-md focus:border-slate-300"
             placeholder="Enter email address"
             onChange={changeHandler}
             value={values.email}
           />
         </label>
         <div className="flex justify-between flex-wrap my-3">
-          <label class="block">
+          <label className="block w-full sm:w-1/2">
             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
               Create Password
             </span>
-            <div className=" flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400  w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
+            <div className="flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
               <input
                 required
                 type={visible1 ? "text" : "password"}
@@ -148,11 +148,11 @@ function Signupform(props) {
               </div>
             </div>
           </label>
-          <label class="block">
+          <label className="block w-full sm:w-1/2">
             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
               Confirm Password
             </span>
-            <div className=" flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400  w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
+            <div className="flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400 w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
               <input
                 required
                 type={visible2 ? "text" : "password"}
@@ -176,7 +176,7 @@ function Signupform(props) {
           </label>
         </div>
         <button className="flex justify-center bg-yellow-500 text-black w-full my-2 py-3 font-semibold rounded-md">
-          Sign In
+          Sign Up
         </button>
       </form>
     </div>

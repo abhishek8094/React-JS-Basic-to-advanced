@@ -14,8 +14,7 @@ function Loginform(props) {
     password: "",
   });
   const [visible, setVisible] = useState(false);
-  console.log(values);
-  console.log(visible);
+
   function changeHandler(event) {
     const { name, value } = event.target;
     setValues((prev) => ({
@@ -23,6 +22,7 @@ function Loginform(props) {
       [name]: value,
     }));
   }
+
   function submitHandler(event) {
     event.preventDefault();
     setLogged((prev) => !prev);
@@ -42,7 +42,7 @@ function Loginform(props) {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <label class="block">
+        <label className="block">
           <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
             Email Address
           </span>
@@ -55,11 +55,11 @@ function Loginform(props) {
             onChange={changeHandler}
           />
         </label>
-        <label class="block">
+        <label className="block">
           <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-base font-medium text-white">
             Password
           </span>
-          <div className=" flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400  w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
+          <div className="flex justify-between items-center mt-1 px-3 py-2 bg-richblack-800 border-0 shadow-sm placeholder-slate-400  w-full rounded-md focus-within:border-slate-300 focus-within:border-2">
             <input
               required
               type={visible ? "text" : "password"}

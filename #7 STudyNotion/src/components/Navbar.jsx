@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 function Navbar(props) {
   const logged = props.logged;
   const setLogged = props.setLogged;
+
   function clickHandle() {
     toast.success("Logged out", {
       position: "top-center",
@@ -19,15 +20,15 @@ function Navbar(props) {
     });
     setLogged((prev) => !prev);
   }
-  
+
   return (
-    <div className="flex justify-between mx-8 py-8   ">
+    <div className="flex justify-between mx-8 py-8">
       <div>
         <Link to="/">
-          <img className=" scale-75" src={logo} />
+          <img className="scale-75" src={logo} alt="Logo" />
         </Link>
       </div>
-      <div className="flex gap-x-5 text-slate-300">
+      <div className="hidden sm:flex gap-x-5 text-slate-300">
         <span>
           <Link to="/">Home</Link>
         </span>
@@ -40,36 +41,35 @@ function Navbar(props) {
       </div>
 
       <div className="flex gap-x-5 text-slate-300">
-        {logged && (
-          <Link to="/">
-            <button
-              onClick={clickHandle}
-              className=" bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md"
-            >
-              Log out
-            </button>
-          </Link>
-        )}
-        {logged && (
-          <Link to="/dashboard">
-            <button className=" bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
-              Dashboard
-            </button>
-          </Link>
-        )}
-        {!logged && (
-          <Link to="/login">
-            <button className=" bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
-              Log in
-            </button>
-          </Link>
-        )}
-        {!logged && (
-          <Link to="/signup">
-            <button className=" bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
-              Sign up
-            </button>
-          </Link>
+        {logged ? (
+          <>
+            <Link to="/">
+              <button
+                onClick={clickHandle}
+                className="bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md"
+              >
+                Log out
+              </button>
+            </Link>
+            <Link to="/dashboard">
+              <button className="bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
+                Dashboard
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
+                Log in
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="bg-white px-4 py-2 border-white bg-opacity-20 border rounded-md">
+                Sign up
+              </button>
+            </Link>
+          </>
         )}
       </div>
     </div>
