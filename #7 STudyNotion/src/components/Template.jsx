@@ -45,7 +45,7 @@ function Template({ title, formtype, image, logged, setLogged }) {
           </button>
         </div>
       </div>
-      <div className="w-full sm:w-5/12 relative"> 
+      <div className="w-full sm:w-5/12 relative hidden sm:block"> 
         <img
           src={frame}
           loading="lazy"
